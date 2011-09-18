@@ -1,4 +1,4 @@
-<?php
+<?php // Functions
   include("resources/scripts/php/database.php");
 
   function registerBlurb() {
@@ -41,7 +41,8 @@
   }
 ?>
 
-<?php
+
+<?php // Processing the login
   if(isset($_GET['login'])) {
     if(isset($_POST['l_username']) && isset($_POST['l_password'])) {
       $attempted_username = $_POST['l_username'];
@@ -79,4 +80,5 @@
     </div>
   <?php registerBlurb(); ?>
 </div>
+
 <?php include("resources/footer.html"); ?>
