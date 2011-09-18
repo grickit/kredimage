@@ -1,8 +1,8 @@
 <?php
 
-  $db_user = "root";
-  $db_pass = "square1";
-  $passsalt1 = "tomato";
-  $passsalt2 = "(:P)";
+  define("DB_USER","root");
+  define("DB_PASS","square1");
+  define("PASSSALT1","tomato");
+  define("PASSSALT2","(:P)");
 
 ?>
