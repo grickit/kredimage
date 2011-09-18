@@ -1,5 +1,5 @@
 <?php // Functions
-  include("resources/scripts/php/database.php");
+  include_once("resources/scripts/php/database.php");
 
   function registerBlurb() {
   echo "
@@ -11,21 +11,12 @@
 
   function processCredentials($username,$password) {
     $db_server = connectToDatabase();
-
     $hashedpass = hashPassword($password);
-    $username = mysql_real_escape_string($username);
-    $hashedpass = mysql_real_escape_string($hashedpass);
 
-    $query = "SELECT * FROM user_registration WHERE username='$username' && hashedpass='$hashedpass'";
-    $result = mysql_query($query);
-    if(!$result) die("Couldn't lookup username: ".mysql_error());
-    $results = mysql_num_rows($result);
-
-    if ($results == 1) {
+    if (testLogin($username,$hashedpass) == 1) {
       session_start();
-      $results = mysql_fetch_row($result);
-      $_SESSION['uniqueid'] = $results[1];
-      $_SESSION['username'] = $results[2];
+      $_SESSION['username'] = $username;
+      $_SESSION['hashedpass'] = $hashedpass;
 
       if($_POST['l_remember'] == true) {
 	return "Will remember";
@@ -39,6 +30,7 @@
 
     mysql_close($db_server);
   }
+
 ?>
 
 
@@ -75,7 +67,7 @@
 	    <label for="l_username">Username:</label><input id="l_username" name="l_username" type="text" class="text" value="<?php echo $attempted_username ?>"><br>
 	    <label for="l_password">Password:</label><input id="l_password" name="l_password" type="password" class="text"><br>
 	    <input id="l_remember" name="l_remember" type="checkbox"> Remember me<br>
-	    <input type="submit">
+	    <input type="submit" value="Login">
       </form>
     </div>
   <?php registerBlurb(); ?>

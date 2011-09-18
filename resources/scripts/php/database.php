@@ -11,4 +11,16 @@
   function hashPassword($password) {
     return sha1(PASSSALT1.$password.PASSSALT2);
   }
+
+  function testLogin($username,$hashedpass) {
+    $username = mysql_real_escape_string($username);
+    $hashedpass = mysql_real_escape_string($hashedpass);
+
+    $query = "SELECT * FROM user_registration WHERE username='$username' && hashedpass='$hashedpass'";
+    $result = mysql_query($query);
+    if(!$result) die("Couldn't lookup username: ".mysql_error());
+    $results = mysql_num_rows($result);
+
+    return $results;
+  }
 ?>

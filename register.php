@@ -1,5 +1,5 @@
 <?php // Functions
-  include("resources/scripts/php/database.php");
+  include_once("resources/scripts/php/database.php");
 
   function validateUsername($username) {
     if(strlen($username) <= 3) { return "Your username must be between 4 and 20 characters long"; }

@@ -20,8 +20,11 @@
 	  <?php
 	    session_start();
 	    session_regenerate_id();
-	    if(isset($_SESSION['uniqueid']) && isset($_SESSION['username'])) {
-	      include("resources/pieces/mini_profile.php");
+	    if(isset($_COOKIE['uniqueid'])) { // Transfer cookies to session
+	      $_SESSION['uniqueid'] = $_COOKIE['uniqueid'];
+	    }
+	    if(isset($_SESSION['username']) && isset($_SESSION['hashedpass'])) {
+	      include("resources/mini_profile.php");
 	    }
 	  ?>
         </div>
