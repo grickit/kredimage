@@ -25,26 +25,26 @@ function validateUsername($username) {
 }
 
 function validatePassword($password) {
-  if(strlen($password) <= 7) { return "Password must be between 8 and 20 characters long."; }
-  if(strlen($password) > 20) { return "Password must be between 8 and 20 characters long."; }
+  if(strlen($password) <= 7) { return "Password must be between 8 and 20 characters long"; }
+  if(strlen($password) > 20) { return "Password must be between 8 and 20 characters long"; }
   if(preg_match('/^[a-zA-Z0-9*_-]+$/',$password) == 0) { return "Passwords can only use A-Z a-z 0-9 _ - *"; }
   return false;
 }
 
 function validateConfirm($password,$confirm) {
-  if($confirm != $password) { return "Passwords don't match."; }
+  if($confirm != $password) { return "Passwords don't match"; }
   return false;
 }
 
 function validateEmail($email) {
-  if(strlen($email) > 100) { return "Email address can't be over 100 characters long."; }
-  if(preg_match('/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/',$email) == 0) { return "That doesn't look like a valid email address."; }
+  if(strlen($email) > 100) { return "Email address can't be over 100 characters long"; }
+  if(preg_match('/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/',$email) == 0) { return "That doesn't look like a valid email address"; }
   return false;
 }
 
 function validateBirthYear($birthyear,$year) {
-  if(preg_match('/^[0-9][0-9][0-9][0-9]$/',$birthyear) == 0) { return "Please enter the long (four digit) form of the year you were born."; }
-  if(($year - $birthyear) >= 120) { return "The year you entered is impossibly old."; }
+  if(preg_match('/^[0-9][0-9][0-9][0-9]$/',$birthyear) == 0) { return "Please enter the long (four digit) form of the year you were born"; }
+  if(($year - $birthyear) >= 120) { return "The year you entered is impossibly old"; }
   if(($year - $birthyear) < 0 ) { return "The year you entered is in the future"; }
   return false;
 }
