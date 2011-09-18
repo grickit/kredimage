@@ -1,14 +1,6 @@
 <?php // Functions
   include_once("resources/scripts/php/database.php");
 
-  function registerBlurb() {
-  echo "
-    <div id=\"register_blurb\">
-      <p>Don't have an account? Why not? Kredimage is free and awesome. We're offended that you haven't tried it yet.</p>
-      <p>But we forgive you. Just head over to our <a href=\"register.php\">registration page</a>.</p>
-    </div>";
-  }
-
   function processCredentials($username,$password) {
     $db_server = connectToDatabase();
     $hashedpass = hashPassword($password);
@@ -51,6 +43,10 @@
     $error = "You have logged out.";
   }
 
+  if (isset($_GET['error']) && !isset($error)) {
+    $error = $_GET['error'];
+  }
+
   if($error == '') {
     $error = '<br>';
   }
@@ -70,7 +66,10 @@
 	    <input type="submit" value="Login">
       </form>
     </div>
-  <?php registerBlurb(); ?>
+    <div id="register_blurb">
+      <p>Don't have an account? Why not? Kredimage is free and awesome. We're offended that you haven't tried it yet.</p>
+      <p>But we forgive you. Just head over to our <a href="register.php">registration page</a>.</p>
+  </div>
 </div>
 
 <?php include("resources/footer.html"); ?>
