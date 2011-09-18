@@ -50,8 +50,8 @@ function validateBirthYear($birthyear,$year) {
 }
 
 function commitRegistration($username,$password,$email,$birthyear) {
-  $passsalt1 = 'brocoli';
-  $passsalt2 = '^_^';
+  include("secrets.php");
+
   $randsalt = rand(0,999);
 
   $uniqueid = sha1($username.$randsalt);
@@ -64,7 +64,7 @@ function commitRegistration($username,$password,$email,$birthyear) {
   $terms = 1;
   $validated = 0;
 
-  $db_server = mysql_connect('localhost','root','square1');
+  $db_server = mysql_connect('localhost',$db_user,$db_pass);
   if(!$db_server) die("Couldn't connect to MySQL server: ".mysql_error());
   mysql_select_db('kredimage') or die("Couldn't select user_registration table: ".mysql_error());
 
