@@ -1,0 +1,39 @@
+#registration_page {
+  width: 600px;
+  height: 700px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding: 10px;
+  border: 1px solid #76705A;
+  background-color: #FFFFFF;
+}
+
+#registration_form label {
+  width: 130px;
+  display: block;
+}
+
+#registration_form input.text {
+  width: 180px;
+  height: 18px;
+  border: 1px solid #76705A;
+  background-color: #DCA050;
+}
+
+#terms {
+  width: 100%;
+  height: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  border: 1px solid #76705A;
+}
+
+.error {
+  padding-left: 3px;
+  color: #FF0000;
+  font-size: 12px;
+}
