@@ -1,5 +1,5 @@
 <?php
-include("secrets.php");
+include("secrets.php"); //$db_user, $db_pass, $passsalt1, $passsalt2
 
 $username = $_GET['username'];
 if(!$username == "") {

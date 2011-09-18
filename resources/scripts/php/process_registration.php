@@ -50,7 +50,7 @@ function validateBirthYear($birthyear,$year) {
 }
 
 function commitRegistration($username,$password,$email,$birthyear) {
-  include("secrets.php");
+  include("secrets.php"); //$db_user, $db_pass, $passsalt1, $passsalt2
 
   $randsalt = rand(0,999);
 
