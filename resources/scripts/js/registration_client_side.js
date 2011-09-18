@@ -2,7 +2,7 @@ function usernameValidate() {
   username = document.getElementById("f_username").value
   username_regex = /^[a-zA-Z0-9*_-]+$/
 
-  request = ajaxGetRequest("resources/processing/username_taken.php?username="+username)
+  request = ajaxGetRequest("resources/scripts/php/username_taken.php?username="+username)
 
   request.onreadystatechange = function () {
     if (this.readyState == 4) {
