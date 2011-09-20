@@ -11,10 +11,6 @@
       $_SESSION['username'] = $username;
       $_SESSION['hashedpass'] = $hashedpass;
 
-      if($_POST['l_remember'] == true) {
-	return "Will remember";
-      }
-
       sendTo('upload.php');
     }
     else {

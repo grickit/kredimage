@@ -53,7 +53,14 @@
 	    <a id="search_submit" href="#" onclick="this.parentNode.submit()">Search</a>
 	  </form>
 
-	  <?php if ($logged_in == true) { include("mini_profile.php"); } ?>
+	  <?php
+	    if ($logged_in == true) {
+	      include("mini_profile.php");
+	    }
+	    else {
+	      include("mini_login.php");
+	    }
+	  ?>
 
         </div>
       </div>
