@@ -16,17 +16,8 @@
 	    <a id="search_submit" href="#" onclick="this.parentNode.submit()">Search</a>
 	  </form>
 
-	  <!--login stuff goes here-->
-	  <?php
-	    session_start();
-	    session_regenerate_id();
-	    if(isset($_COOKIE['uniqueid'])) { // Transfer cookies to session
-	      $_SESSION['uniqueid'] = $_COOKIE['uniqueid'];
-	    }
-	    if(isset($_SESSION['username']) && isset($_SESSION['hashedpass'])) {
-	      include("resources/mini_profile.php");
-	    }
-	  ?>
+	  <?php if ($logged_in == true) { include("mini_profile.php"); } ?>
+
         </div>
       </div>
 

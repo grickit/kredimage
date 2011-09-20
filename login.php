@@ -1,5 +1,6 @@
+<?php include("resources/scripts/php/kredimage.php"); ?>
+
 <?php // Functions
-  include_once("resources/scripts/php/database.php");
 
   function processCredentials($username,$password) {
     $db_server = connectToDatabase();
@@ -13,6 +14,8 @@
       if($_POST['l_remember'] == true) {
 	return "Will remember";
       }
+
+      sendTo('upload.php');
     }
     else {
       session_start();
@@ -24,7 +27,6 @@
   }
 
 ?>
-
 
 <?php // Processing the login
   if(isset($_GET['login'])) {
@@ -47,9 +49,7 @@
     $error = $_GET['error'];
   }
 
-  if($error == '') {
-    $error = '<br>';
-  }
+  if($error == '') { $error = '<br>'; }
 ?>
 
 <?php include("resources/header.php"); ?>
@@ -58,7 +58,7 @@
 <div id="login_page">
   <p><span style="font-size: 28px;">Log in to your Kredimage account</span></p>
     <div id="login_form_container">
-      <form id="login_form" method="post" action="login.php?login=1">
+      <form id="login_form" method="post" action="login.php?login">
 	    <span class="error"><?php echo $error; ?></span>
 	    <label for="l_username">Username:</label><input id="l_username" name="l_username" type="text" class="text" value="<?php echo $attempted_username ?>"><br>
 	    <label for="l_password">Password:</label><input id="l_password" name="l_password" type="password" class="text"><br>

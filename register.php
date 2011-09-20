@@ -1,5 +1,6 @@
+<?php include("resources/scripts/php/kredimage.php"); ?>
+
 <?php // Functions
-  include_once("resources/scripts/php/database.php");
 
   function validateUsername($username) {
     if(strlen($username) <= 3) { return "Your username must be between 4 and 20 characters long"; }
@@ -108,8 +109,7 @@
     }
     else {
       commitRegistration($username,$password,$email,$birthyear);
-      header('Location: login.php');
-      exit();
+      sendTo('login.php');
     }
 
   }
@@ -130,7 +130,7 @@
   </p>
 
   <p>
-    <form id="registration_form" method="post" action="register.php?process=1">
+    <form id="registration_form" method="post" action="register.php?process">
     <span id="error" class="error"><?php echo $error; ?></span>
 
 	  <label for="f_username">Username:</label>
