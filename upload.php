@@ -1,4 +1,4 @@
-<?php include("resources/header.php"); ?>
+<?php include("resources/scripts/php/kredimage.php"); ?>
 
 <?php
   if ($logged_in != true) { sendToLogin('You must be logged in to upload images.'); }
@@ -24,6 +24,8 @@
     }
   }
 ?>
+
+<?php include("resources/header.php"); ?>
 
 <style type="text/css">@import url("resources/styles/upload.css");</style>
 <div id="upload_page">

@@ -1,4 +1,4 @@
-<?php include("resources/header.php"); ?>
+<?php include("resources/scripts/php/kredimage.php"); ?>
 
 <?php // Functions
 
@@ -46,7 +46,10 @@
   }
 
   if($error == '') { $error = '<br>'; }
+
 ?>
+
+<?php include("resources/header.php"); ?>
 
 <style type="text/css">@import url("resources/styles/login.css");</style>
 <div id="login_page">
