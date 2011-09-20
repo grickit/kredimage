@@ -93,3 +93,15 @@ a img {
 }
 
 /*----------PAGE----------*/
+
+.error {
+  color: #FF0000;
+  font-size: 12px;
+}
+
+input.text {
+  width: 180px;
+  height: 18px;
+  border: 1px solid #76705A;
+  background-color: #DCA050;
+}

@@ -21,13 +21,6 @@
   display: block;
 }
 
-#login_form input.text {
-  width: 180px;
-  height: 18px;
-  border: 1px solid #76705A;
-  background-color: #DCA050;
-}
-
 #register_blurb {
   width: 380px;
   height: 170px;
@@ -35,9 +28,4 @@
   padding: 5px;
   border: 1px solid #76705A;
   background-color: #DCA050;
-}
-
-.error {
-  color: #FF0000;
-  font-size: 12px;
 }

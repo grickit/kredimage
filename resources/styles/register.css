@@ -16,13 +16,6 @@
   display: block;
 }
 
-#registration_form input.text {
-  width: 180px;
-  height: 18px;
-  border: 1px solid #76705A;
-  background-color: #DCA050;
-}
-
 #terms {
   width: 100%;
   height: 280px;
@@ -34,6 +27,4 @@
 
 .error {
   padding-left: 3px;
-  color: #FF0000;
-  font-size: 12px;
 }
