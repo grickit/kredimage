@@ -115,7 +115,9 @@
   }
 ?>
 
-<?php include("resources/header.php"); ?>
+<?php include("resources/header.php");
+  if ($logged_in == true) { sendTo('upload.php'); }
+?>
 
 <script type="text/javascript" src="resources/scripts/js/ajax.js"></script>
 <script type="text/javascript" src="resources/scripts/js/registration_client_side.js"></script>
