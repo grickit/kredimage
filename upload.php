@@ -4,7 +4,6 @@
   $error = '<br>';
 
   if (isset($_GET['upload'])) {
-
     if($_FILES["u_file"]["error"] > 0) {
       $error = "Error: " . $_FILES["u_file"]["error"] . "<br>";
     }
