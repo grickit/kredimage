@@ -39,7 +39,7 @@
 	    if ($logged_in == true) {
 	      include("mini_profile.php");
 	    }
-	    else {
+	    elseif ($mini_login == true) {
 	      include("mini_login.php");
 	    }
 	  ?>
