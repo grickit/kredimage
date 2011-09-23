@@ -5,7 +5,7 @@
     if(strlen($username) > 20) { return "Your username must be between 4 and 20 characters long"; }
     if(preg_match('/^[a-zA-Z0-9*_-]+$/',$username) == 0) { return "Usernames can only use A-Z a-z 0-9 _ - *"; }
 
-    $db_server = mysql_connect('localhost','root','square1');
+    $db_server = connectToDatabase();
     if(!$db_server) die("Couldn't connect to MySQL server: ".mysql_error());
     mysql_select_db('kredimage') or die("Couldn't select user_registration table: ".mysql_error());
 
