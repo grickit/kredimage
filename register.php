@@ -7,7 +7,6 @@
 
     $db_server = connectToDatabase();
     if(!$db_server) die("Couldn't connect to MySQL server: ".mysql_error());
-    mysql_select_db('kredimage') or die("Couldn't select user_registration table: ".mysql_error());
 
     $username = mysql_real_escape_string($username);
     $query = "SELECT id FROM user_registration WHERE username='$username'";
