@@ -1,7 +1,9 @@
 <?php
 
+  define("DB_ADDR","localhost");
   define("DB_USER","root");
   define("DB_PASS","square1");
+  define("DB_NAME","kredimage");
   define("PASSSALT1","tomato");
   define("PASSSALT2","(:P)");
 
