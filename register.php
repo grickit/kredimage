@@ -1,7 +1,5 @@
 <?php include("resources/scripts/php/kredimage.php"); ?>
-
 <?php // Functions
-
   function validateUsername($username) {
     if(strlen($username) <= 3) { return "Your username must be between 4 and 20 characters long"; }
     if(strlen($username) > 20) { return "Your username must be between 4 and 20 characters long"; }
@@ -54,8 +52,7 @@
   function commitRegistration($username,$password,$email,$birthyear) {
     $randsalt = rand(0,999);
 
-    $uniqueid = sha1($username.$randsalt);
-    $validationcode = sha1($uniqueid);
+    $validationcode = sha1($username.$randsalt);
     $hashedpass = hashPassword($password);
     $regiyear = date('Y');
     $regimonth = date('m');
@@ -66,7 +63,6 @@
 
     $db_server = connectToDatabase();
 
-    $uniqueid = mysql_real_escape_string($uniqueid);
     $username = mysql_real_escape_string($username);
     $hashedpass = mysql_real_escape_string($hashedpass);
     $email = mysql_real_escape_string($email);
@@ -79,14 +75,13 @@
     $validationcode = mysql_real_escape_string($validationcode);
     $validated = mysql_real_escape_string($validated);
 
-    $query = "INSERT INTO user_registration VALUES(NULL,'$uniqueid','$username','$hashedpass','$email',$birthyear,$regiyear,$regimonth,$regiday,'$regiaddr',$terms,'$validationcode',$validated)";
+    $query = "INSERT INTO user_registration VALUES(NULL,'$username','$hashedpass','$email',$birthyear,$regiyear,$regimonth,$regiday,'$regiaddr',$terms,'$validationcode',$validated)";
     $result = mysql_query($query);
     if(!$result) die("Couldn't commit registration: ".mysql_error());
 
     mysql_close($db_server);
   }
 ?>
-
 <?php // Processing the registration
   if(isset($_GET['process'])) {
     $username = $_POST['f_username'];
@@ -114,11 +109,10 @@
 
   }
 ?>
-
-<?php include("resources/header.php");
+<?php // Content
+  include("resources/header.php");
   if ($logged_in == true) { sendTo('upload.php'); }
 ?>
-
 <script type="text/javascript" src="resources/scripts/js/ajax.js"></script>
 <script type="text/javascript" src="resources/scripts/js/registration_client_side.js"></script>
 <style type="text/css">@import url("resources/styles/register.css");</style>
@@ -167,5 +161,4 @@
     </form>
   </p>
 </div>
-
 <?php include("resources/footer.html"); ?>

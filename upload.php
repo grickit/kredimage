@@ -1,6 +1,9 @@
-<?php include("resources/scripts/php/kredimage.php"); ?>
-
 <?php
+  include("resources/scripts/php/kredimage.php");
+  include("resources/header.php");
+  if ($logged_in != true) { sendToLogin('You must be logged in to upload images.'); }
+?>
+<?php // Process the upload
   $error = '<br>';
 
   if (isset($_GET['upload'])) {
@@ -10,23 +13,39 @@
     else {
       $type = $_FILES["u_file"]["type"];
       if(($type != "image/jpeg") && ($type != "image/png") && ($type != "image/gif")) {
-	$error = "Unknown filetype " . $_FILES["u_file"]["type"] . "<br>";
+	$error = "Unknown filetype " . $type . "<br>";
       }
       else {
+
+	$db_server = connectToDatabase();
+	$owner = $loginData['id'];
+	$uploadyear = date('Y');
+	$uploadmonth = date('m');
+	$uploadday = date('d');
+	$uploadaddr = $_SERVER['REMOTE_ADDR'];
+	$uploadtype = $type;
+
+	$owner = mysql_real_escape_string($owner);
+	$uploadyear = mysql_real_escape_string($uploadyear);
+	$uploadmonth = mysql_real_escape_string($uploadmonth);
+	$uploadday = mysql_real_escape_string($uploadday);
+	$uploadaddr = mysql_real_escape_string($uploadaddr);
+	$uploadtype = mysql_real_escape_string($uploadtype);
+
+	$query = "INSERT INTO image_upload VALUES(NULL,'$owner','$uploadyear','$uploadmonth','$uploadday','$uploadaddr','$uploadtype')";
+	$result = mysql_query($query);
+	if(!$result) die("Couldn't commit registration: ".mysql_error());
+
+	$id = mysql_insert_id($db_server);
+
 	$contents = file_get_contents($_FILES["u_file"]["tmp_name"]);
 	$base64 = base64_encode($contents);
-	file_put_contents($storage_directory."foo",$base64);
-	sendTo("resources/scripts/php/image.php");
+	file_put_contents($full_directory.$id,$base64);
+	sendTo("resources/scripts/php/image.php?id=$id");
       }
     }
   }
 ?>
-
-<?php
-  include("resources/header.php");
-  if ($logged_in != true) { sendToLogin('You must be logged in to upload images.'); }
-?>
-
 <style type="text/css">@import url("resources/styles/upload.css");</style>
 <div id="upload_page">
 <p><span style="font-size: 28px;">Upload an image to your Kredimage account</span></p>
@@ -38,5 +57,4 @@
     </form>
   </div>
 </div>
-
 <?php include("resources/footer.html"); ?>

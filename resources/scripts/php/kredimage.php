@@ -10,8 +10,20 @@
     sendTo('login.php?error=' . $message);
   }
 
-  $storage_directory = $_SERVER['DOCUMENT_ROOT'].'/kredimage_storage/';
+
   if ( !file_exists($storage_directory) ) {
     mkdir ($storage_directory, 0775);
+  }
+
+  if ( !file_exists($full_directory) ) {
+    mkdir ($full_directory, 0775);
+  }
+
+  if ( !file_exists($small_directory) ) {
+    mkdir ($small_directory, 0775);
+  }
+
+  if ( !file_exists($thumb_directory) ) {
+    mkdir ($thumb_directory, 0775);
   }
 ?>

@@ -1,8 +1,11 @@
 <?php
-  $storage_directory = $_SERVER['DOCUMENT_ROOT'].'/kredimage_storage/';
-  $contents = file_get_contents($storage_directory."foo");
-  $contents = base64_decode($contents);
-  header("Content-type: image");
-  echo $contents;
-  exit();
+  include("secrets.php");
+
+  if (isset($_GET['id'])) {
+    $contents = file_get_contents($full_directory.$_GET['id']);
+    $contents = base64_decode($contents);
+    header("Content-type: image");
+    echo $contents;
+    exit();
+  }
 ?>
