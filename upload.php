@@ -1,6 +1,6 @@
 <?php
   include("resources/scripts/php/kredimage.php");
-  include("resources/header.php");
+  include("resources/scripts/php/login.php");
   if ($logged_in != true) { sendToLogin('You must be logged in to upload images.'); }
 ?>
 <?php // Process the upload
@@ -46,6 +46,7 @@
     }
   }
 ?>
+<?php include("resources/header.php"); ?>
 <style type="text/css">@import url("resources/styles/upload.css");</style>
 <div id="upload_page">
 <p><span style="font-size: 28px;">Upload an image to your Kredimage account</span></p>

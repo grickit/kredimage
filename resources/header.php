@@ -1,24 +1,3 @@
-<?php
-  session_start();
-  session_regenerate_id();
-  if(isset($_COOKIE['uniqueid'])) { // Transfer cookies to session
-    $_SESSION['uniqueid'] = $_COOKIE['uniqueid'];
-  }
-  if(isset($_SESSION['username']) && isset($_SESSION['hashedpass'])) {
-    $db_server = connectToDatabase();
-    $loginTest = getLogin($_SESSION['username'],$_SESSION['hashedpass']);
-    if (mysql_num_rows($loginTest) == 1) {
-      $loginData = mysql_fetch_array($loginTest,MYSQL_ASSOC);
-      $logged_in = true;
-    }
-    else {
-      $logged_in = false;
-      session_start();
-      session_destroy();
-    }
-    mysql_close($db_server);
-  }
-?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
@@ -36,7 +15,6 @@
 	    <input id="search_box" name="search_terms" type="text">
 	    <a id="search_submit" href="#" onclick="this.parentNode.submit()">Search</a>
 	  </form>
-
 	  <?php
 	    if ($logged_in == true) {
 	      include("mini_profile.php");
@@ -45,8 +23,6 @@
 	      include("mini_login.php");
 	    }
 	  ?>
-
         </div>
       </div>
-
       <div id="page_container">

@@ -1,4 +1,8 @@
-<?php include("resources/scripts/php/kredimage.php"); ?>
+<?php
+  include("resources/scripts/php/kredimage.php");
+  include("resources/scripts/php/login.php");
+  if ($logged_in == true) { sendTo('upload.php'); }
+?>
 <?php // Functions
   function validateUsername($username) {
     if(strlen($username) <= 3) { return "Your username must be between 4 and 20 characters long"; }
@@ -110,7 +114,6 @@
 ?>
 <?php // Content
   include("resources/header.php");
-  if ($logged_in == true) { sendTo('upload.php'); }
 ?>
 <script type="text/javascript" src="resources/scripts/js/ajax.js"></script>
 <script type="text/javascript" src="resources/scripts/js/registration_client_side.js"></script>
