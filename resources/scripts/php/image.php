@@ -72,6 +72,12 @@
     elseif($image_type == IMAGETYPE_PNG) { imagepng($image); }
   }
 
+  function saveImage($image,$image_type,$location) { // Save the image to a file
+    if($image_type == IMAGETYPE_JPEG) { imagejpeg($image,$location); }
+    elseif($image_type == IMAGETYPE_GIF) { imagegif($image,$location); }
+    elseif($image_type == IMAGETYPE_PNG) { imagepng($image,$location); }
+  }
+
   function loadAndOutputImage($location) { // Load an image and output it
     header("Content-type: ".getImageMime($location));
     $image = file_get_contents($location);
@@ -79,7 +85,7 @@
     exit();
   }
 
-  function loadResizeAndOutputImage($location,$number) { // Load an image, resize it, and output it
+  function loadResizeOutputAndSaveImage($location,$number,$location2) { // Load an image, resize it, output it, and save it
     header("Content-type: ".getImageMime($location));
     $image = loadImage($location);
     $image_type = getImageType($location);
@@ -87,6 +93,7 @@
     imagealphablending($image,false);
     imagesavealpha($image,true);
     outputImage($image,$image_type);
+    saveImage($image,$image_type,$location2);
     exit();
   }
 
@@ -101,7 +108,7 @@
 	  loadAndOutputImage($small_directory.$id);
 	}
 	else {
-	  loadResizeAndOutputImage($full_directory.$id,600); # Make small
+	  loadResizeOutputAndSaveImage($full_directory.$id,600,$small_directory.$id); # Make small
 	}
       }
 
@@ -110,7 +117,7 @@
 	  loadAndOutputImage($thumb_directory.$id);
 	}
 	else {
-	  loadResizeAndOutputImage($full_directory.$id,90); # Make thumbnail
+	  loadResizeOutputAndSaveImage($full_directory.$id,90,$thumb_directory.$id); # Make thumbnail
 	}
       }
 
