@@ -74,11 +74,8 @@
 
   function loadAndOutputImage($location) { // Load an image and output it
     header("Content-type: ".getImageMime($location));
-    $image = loadImage($location);
-    $image_type = getImageType($location);
-    imagealphablending($image,false);
-    imagesavealpha($image,true);
-    outputImage($image,$image_type);
+    $image = file_get_contents($location);
+    echo $image;
     exit();
   }
 
