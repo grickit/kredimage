@@ -80,8 +80,7 @@
 
   function loadAndOutputImage($location) { // Load an image and output it
     header("Content-type: ".getImageMime($location));
-    $image = file_get_contents($location);
-    echo $image;
+    echo file_get_contents($location);
     exit();
   }
 
