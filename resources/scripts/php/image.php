@@ -100,6 +100,15 @@
     $id = $_GET['id'];
     if (isset($_GET['json'])) { # Want json?
       // TODO: Echo information about the image in JSON format
+      $image = loadImage($full_directory.$id);
+      header('Content-type: application/json');
+      echo "{\n";
+      echo "  \"image ".$id."\": {\n";
+      echo "    \"width\": \"".getImageWidth($image)."\"\n";
+      echo "    \"height\": \"".getImageheight($image)."\"\n";
+      echo "  }\n";
+      echo "}\n";
+      exit();
     }
     else {
       if (isset($_GET['small'])) { # Want small?
