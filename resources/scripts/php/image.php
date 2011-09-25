@@ -125,7 +125,7 @@
 	  loadAndOutputImage($thumb_directory.$id);
 	}
 	else {
-	  loadResizeOutputAndSaveImage($full_directory.$id,90,$thumb_directory.$id); # Make thumbnail
+	  loadResizeOutputAndSaveImage($full_directory.$id,120,$thumb_directory.$id); # Make thumbnail
 	}
       }
 
