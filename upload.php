@@ -39,8 +39,7 @@
 	$id = mysql_insert_id($db_server);
 
 	$contents = file_get_contents($_FILES["u_file"]["tmp_name"]);
-	$base64 = base64_encode($contents);
-	file_put_contents($full_directory.$id,$base64);
+	file_put_contents($full_directory.$id,$contents);
 	sendTo("resources/scripts/php/image.php?id=$id");
       }
     }
