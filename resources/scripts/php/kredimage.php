@@ -26,4 +26,13 @@
   if ( !file_exists($thumb_directory) ) {
     mkdir ($thumb_directory, 0775);
   }
+
+  if ( !file_exists($storage_directory.".htaccess") ) {
+    $htaccess = "<LIMIT GET POST>
+order deny,allow
+deny from all
+allow from none
+</LIMIT>";
+    file_put_contents($storage_directory.".htaccess",$htaccess);
+  }
 ?>
