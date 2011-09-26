@@ -78,14 +78,26 @@
     elseif($image_type == IMAGETYPE_PNG) { imagepng($image,$location); }
   }
 
-  function loadAndOutputImage($location) { // Load an image and output it
-    header("Content-type: ".getImageMime($location));
+  function imageHeaders($location,$etag) {
+    if(isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && (strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) == filemtime($location))) {
+      header('HTTP/1.1 304 Not Modified');
+    }
+    header("Cache-Control: private");
+    header("Pragma: ");
+    header("Expires: ");
+    header("Content-Type: ");
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($location)) . ' GMT');
+    header("Etag: ".$etag);
+  }
+
+  function loadAndOutputImage($location,$etag) { // Load an image and output it
+    imageHeaders($location,$etag);
     echo file_get_contents($location);
     exit();
   }
 
-  function loadResizeOutputAndSaveImage($location,$number,$location2) { // Load an image, resize it, output it, and save it
-    header("Content-type: ".getImageMime($location));
+  function loadResizeOutputAndSaveImage($location,$number,$location2,$etag) { // Load an image, resize it, output it, and save it
+    imageHeaders($location,$etag);
     $image = loadImage($location);
     $image_type = getImageType($location);
     $image = resizeImageToNumber($image,$image_type,$number);
@@ -113,24 +125,24 @@
     else {
       if (isset($_GET['small'])) { # Want small?
 	if (file_exists($small_directory.$id)) { # Already have small?
-	  loadAndOutputImage($small_directory.$id);
+	  loadAndOutputImage($small_directory.$id,"small".$id);
 	}
 	else {
-	  loadResizeOutputAndSaveImage($full_directory.$id,600,$small_directory.$id); # Make small
+	  loadResizeOutputAndSaveImage($full_directory.$id,600,$small_directory.$id,"small".$id); # Make small
 	}
       }
 
       elseif (isset($_GET['thumb'])) { # Want thumbnail?
 	if (file_exists($thumb_directory.$id)) { # Already have thumbnail?
-	  loadAndOutputImage($thumb_directory.$id);
+	  loadAndOutputImage($thumb_directory.$id,"thumb".$id);
 	}
 	else {
-	  loadResizeOutputAndSaveImage($full_directory.$id,120,$thumb_directory.$id); # Make thumbnail
+	  loadResizeOutputAndSaveImage($full_directory.$id,120,$thumb_directory.$id,"thumb".$id); # Make thumbnail
 	}
       }
 
       else {
-	loadAndOutputImage($full_directory.$id);
+	loadAndOutputImage($full_directory.$id,"full".$id);
       }
     }
   }
