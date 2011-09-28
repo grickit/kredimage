@@ -20,6 +20,8 @@
   <a href="images/full/<?php echo $image_id; ?>.png"><img src="images/small/<?php echo $image_id; ?>.png"></a>
 </div>
 <div id="stats_page">
-  <span style="font-size: 24px;">Image Title</span>
+  <span style="font-size: 24px;">Image Title</span><br>
+  by <a href="profile.php?a=foo">Foo</a><br>
+  <p>Lorem ipsum foo bar baz</p>
 </div>
 <?php include("resources/footer.html"); ?>
