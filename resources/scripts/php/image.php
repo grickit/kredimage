@@ -128,7 +128,7 @@
 	  loadAndOutputImage($small_directory.$id,"small".$id);
 	}
 	else {
-	  loadResizeOutputAndSaveImage($full_directory.$id,600,$small_directory.$id,"small".$id); # Make small
+	  loadResizeOutputAndSaveImage($full_directory.$id,1000,$small_directory.$id,"small".$id); # Make small
 	}
       }
 
