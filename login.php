@@ -38,7 +38,12 @@
   if(isset($_GET['logout'])) {
     session_start();
     session_destroy();
-    $error = "You have logged out.";
+    if (isset($_GET['referer'])) {
+      sendTo($_GET['referer']);
+    }
+    else {
+      $error = "You have logged out.";
+    }
   }
 
   if (isset($_GET['error']) && !isset($error)) {
