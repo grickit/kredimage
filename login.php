@@ -8,8 +8,12 @@
       session_start();
       $_SESSION['username'] = $username;
       $_SESSION['hashedpass'] = $hashedpass;
-
-      sendTo('upload.php');
+      if (isset($_GET['referer'])) {
+	sendTo($_GET['referer']);
+      }
+      else {
+	sendTo('upload.php');
+      }
     }
     else {
       session_start();
