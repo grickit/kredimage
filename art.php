@@ -3,6 +3,7 @@
 
 ?>
 <?php // Processing the page
+
   $image_id;
   if(isset($_GET['id'])) {
     $image_id = $_GET['id'];
@@ -12,6 +13,7 @@
   }
 ?>
 <?php
+  $mini_login = true;
   include("resources/scripts/php/login.php");
   include("resources/header.php");
 ?>
