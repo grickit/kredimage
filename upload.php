@@ -46,7 +46,7 @@
 
 	$contents = file_get_contents($_FILES["u_file"]["tmp_name"]);
 	file_put_contents($full_directory.$id,$contents);
-	sendTo("resources/scripts/php/image.php?id=$id");
+	sendTo("art.php?id=$id");
       }
     }
   }
