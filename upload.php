@@ -34,9 +34,15 @@
 
 	$query = "INSERT INTO image_upload VALUES(NULL,'$owner','$uploadyear','$uploadmonth','$uploadday','$uploadaddr','$uploadtype')";
 	$result = mysql_query($query);
-	if(!$result) die("Couldn't commit registration: ".mysql_error());
+	if(!$result) die("Couldn't commit image: ".mysql_error());
 
 	$id = mysql_insert_id($db_server);
+
+	$title = mysql_real_escape_string($_POST['u_name']);
+	$description = mysql_real_escape_string($_POST['u_desc']);
+	$query = "INSERT INTO image_stats VALUES('$id','$title','$description','0','0')";
+	$result = mysql_query($query);
+	if(!$result) die("Couldn't commit stats: ".mysql_error());
 
 	$contents = file_get_contents($_FILES["u_file"]["tmp_name"]);
 	file_put_contents($full_directory.$id,$contents);
@@ -52,6 +58,10 @@
   <span class="error"><?php echo $error; ?></span>
   <div id="upload_form_container">
     <form id="upload_form" method="post" action="upload.php?upload" enctype="multipart/form-data">
+      <label for="u_name">Image title:</label><br>
+      <input id="u_name" name="u_name" type="text" size="60"><br>
+      <label for="u_desc">Image description:</label><br>
+      <textarea id="u_desc" name="u_desc" rows="5" cols="70"></textarea><br>
       <input id="u_file" name="u_file" type="file"><br>
       <input id="u_submit" type="submit" value="Upload">
     </form>
