@@ -10,7 +10,7 @@
 
       <div id="head_container">
 	<div id="head_content">
-	  <image id="kredimage_logo" src="" width="145" height="45" alt="Kredimage" style="margin-top: 5px; margin-left: 5px; float: left;">
+	  <img id="kredimage_logo" src="" width="145" height="45" alt="Kredimage" style="margin-top: 5px; margin-left: 5px; float: left;">
 	  <form id="search_form" method="get" action="">
 	    <input id="search_box" name="search_terms" type="text">
 	    <a id="search_submit" href="#" onclick="this.parentNode.submit()">Search</a>
