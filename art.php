@@ -39,4 +39,13 @@
   by <a href="profile.php?a=<?php echo $owner_username; ?>"><?php echo $owner_username; ?></a><br>
   <p><?php echo $image_desc; ?></p>
 </div>
+
+<div id="comments_page">
+
+  <div id="ad_section">
+    <img src="resources/images/fake_ad.png" alt="fake advertisement">
+  </div>
+
+  <div id="comment_entry_form"></div>
+</div>
 <?php include("resources/footer.html"); ?>
