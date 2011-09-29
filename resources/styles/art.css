@@ -40,9 +40,15 @@
   background-color: #FFFFFF;
 }
 
-#comment_entry_form {
+#comment_entry_area {
   width: 785px;
-  min-height: 200px;
+  height: 200px;
   border: 1px solid #76705A;
   background-color: #DCA050;
+}
+
+textarea {
+  width: 770px;
+  margin: 5px;
+  border: 1px solid #76705A;
 }
