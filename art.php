@@ -48,7 +48,7 @@
 
   <div id="comment_entry_area">
     <form id="content_entry_form">
-      <textarea name="c_text" rows="5" cols="80"></textarea>
+      <textarea name="c_text"></textarea>
       <input type="submit" name="c_submit" value="Submit">
     </form>
   </div>
