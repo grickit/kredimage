@@ -53,3 +53,10 @@ textarea {
   margin: 5px;
   border: 1px solid #76705A;
 }
+
+.comment {
+  width: 799px;
+  margin-top: 10px;
+  padding: 3px;
+  border: 1px solid #76705A;
+}

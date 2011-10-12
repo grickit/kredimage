@@ -71,7 +71,7 @@
 
   <?php
     while($row = mysql_fetch_array($comments_result)) {
-      echo $row['message'] . "<br>";
+      echo "<div class=\"comment\">" . $row['message'] . "<br>&ndash; " . $row['username'] . "</div>";
     }
   ?>
 
