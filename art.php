@@ -31,7 +31,8 @@
 
   if(isset($_GET['comment']) && isset($_POST['c_text'])) {
     if($logged_in == true) {
-      $text = $_POST['c_text'];
+      $text = htmlentities($_POST['c_text']);
+      $text = mysql_real_escape_String($text);
       $query = "INSERT INTO image_comments VALUES (NULL,'$image_id','$owner_id','$text')";
       $result = mysql_query($query);
     }
