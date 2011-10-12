@@ -33,7 +33,7 @@
     if($logged_in == true) {
       $text = htmlentities($_POST['c_text']);
       $text = mysql_real_escape_String($text);
-      $query = "INSERT INTO image_comments VALUES (NULL,'$image_id','$owner_id','$text')";
+      $query = "INSERT INTO image_comments VALUES (NULL,'$image_id','".$loginData['id']."','$text')";
       $result = mysql_query($query);
     }
   }
