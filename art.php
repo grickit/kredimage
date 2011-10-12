@@ -37,6 +37,10 @@
       $result = mysql_query($query);
     }
   }
+
+  $query = "SELECT image_comments.message, user_registration.username FROM image_comments, user_registration WHERE image_comments.image_id = '$image_id_db' AND image_comments.owner_id = user_registration.id ORDER BY image_comments.id";
+  $comments_result = mysql_query($query);
+  if(!$comments_result) die("Couldn't lookup comments: ".mysql_error());
 ?>
 <?php
   $mini_login = true;
@@ -64,5 +68,12 @@
       <input type="submit" name="c_submit" value="Submit">
     </form>
   </div>
+
+  <?php
+    while($row = mysql_fetch_array($comments_result)) {
+      echo $row['message'] . "<br>";
+    }
+  ?>
+
 </div>
 <?php include("resources/footer.html"); ?>
