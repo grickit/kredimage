@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 28, 2011 at 06:42 PM
+-- Generation Time: Oct 13, 2011 at 09:45 PM
 -- Server version: 5.1.54
 -- PHP Version: 5.3.5-1ubuntu7.2
 
@@ -18,6 +18,20 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `kredimage`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image_comments`
+--
+
+CREATE TABLE IF NOT EXISTS `image_comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+  `message` varchar(3000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -48,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `image_upload` (
   `uploadaddr` varchar(300) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `uploadtype` varchar(300) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -72,4 +86,4 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid` (`username`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
