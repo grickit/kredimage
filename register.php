@@ -145,7 +145,8 @@
 	  <label for="f_birth_year">Year of birth:</label>
 	  <input id="f_birth_year" name="f_birth_year" type="text" class="text" onChange="birthYearValidate()" value="<?php echo $birthyear; ?>">
 	  <span id="e_birth_year" class="error"><?php echo $birth_year_error; ?></span><br>
-	  <a href="">Is my year of birth really your business?</a>
+	  <a href="#age_warning" name="age_warning" onclick="age_warning()">Is my year of birth really your business?</a>
+	  <div id="age_warning" style="display:none;"><p>Unfortunately, it is. There are some complicated laws around the world that are made to protect those under the age of 13. We can't afford all the procedures to comply with these laws, so we must flat out ban those who aren't old enough.</p></div>
 
       <p>
 	<div id="terms">

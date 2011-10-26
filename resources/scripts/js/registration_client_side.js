@@ -152,3 +152,11 @@ function validateAll() {
     document.getElementById("registration_form").submit()
   }
 }
+
+function age_warning() {
+  var e = document.getElementById("age_warning");
+  if(e.style.display == 'block')
+    e.style.display = 'none';
+  else
+    e.style.display = 'block';
+}
