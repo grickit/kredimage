@@ -4,4 +4,6 @@ RewriteRule ^images/full/([0-9]+)\.(jpeg|png|gif)$ resources/scripts/php/image.p
 RewriteRule ^images/small/([0-9]+)\.(jpeg|png|gif)$ resources/scripts/php/image.php?id=$1&small
 RewriteRule ^images/thumb/([0-9]+)\.(jpeg|png|gif)$ resources/scripts/php/image.php?id=$1&thumb
 
+RewriteRule ^index.php$ search.php?type=recent
+
 RewriteRule ^resources/[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+$ upload.php [R]
