@@ -12,10 +12,6 @@
 	<div id="head_content">
 	  <img id="kredimage_logo" src="" width="145" height="45" alt="Kredimage" style="margin-top: 5px; margin-left: 5px; float: left;">
 	  <form id="search_form" method="get" action="">
-	    <div>
-	      <input id="search_box" name="search_terms" type="text">
-	      <a id="search_submit" href="#" onclick="this.parentNode.submit()">Search</a>
-	    </div>
 	  </form>
 	  <?php
 	    if ($logged_in == true) {

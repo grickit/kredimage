@@ -120,11 +120,6 @@
 <style type="text/css">@import url("resources/styles/register.css");</style>
 <div id="registration_page">
   <p><span style="font-size: 28px;">Register for Kredimage - entirely free!</span>
-    <ul>
-      <li>Share your artwork with others</li>
-      <li>Earn "kredibility" from people who love your art or for helping out around the community</li>
-      <li>Self moderating system mitigates the problem of people copying your artwork</li>
-    </ul>
   </p>
 
   <p>
