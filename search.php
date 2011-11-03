@@ -15,16 +15,18 @@
   $mini_login = true;
   include("resources/header.php");
 ?>
-<style type="text/css">@import url("resources/styles/art.css");</style>
-<?php
-  switch($mode) {
-    case "all":
-      $query = "SELECT * FROM image_stats ORDER BY id DESC";
-      $result = mysql_query($query);
-      while ($row = mysql_fetch_assoc($result)) {
-	echo '<img src="images/thumb/'.$row['id'].'.png">';
-      }
-      break;
-  }
-?>
+<style type="text/css">@import url("resources/styles/search.css");</style>
+<div id="search_page">
+  <?php
+    switch($mode) {
+      case "all":
+	$query = "SELECT * FROM image_stats ORDER BY id DESC";
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_assoc($result)) {
+	  echo '<a class="thumb" href="art.php?id='.$row['id'].'"><img src="images/thumb/'.$row['id'].'.png">'.$row['name'].'</a>';
+	}
+	break;
+    }
+  ?>
+</div>
 <?php include("resources/footer.html"); ?>

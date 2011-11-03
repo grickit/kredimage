@@ -1,5 +1,5 @@
 <?php
-  include("resources/scripts/php/kredimage.php"); 
+  include("resources/scripts/php/kredimage.php");
   include("resources/scripts/php/login.php");
 ?>
 <?php // Functions
