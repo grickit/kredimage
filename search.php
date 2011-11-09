@@ -22,10 +22,19 @@
       case "all":
 	$query = "SELECT * FROM image_stats ORDER BY id DESC";
 	$result = mysql_query($query);
-	while ($row = mysql_fetch_assoc($result)) {
-	  echo '<a class="thumb" href="art.php?id='.$row['id'].'"><img src="images/thumb/'.$row['id'].'.png">'.$row['name'].'</a>';
-	}
 	break;
+      case "user":
+	$query = "SELECT image_stats.id, image_stats.name FROM image_stats,image_upload,user_registration WHERE image_stats.id = image_upload.id AND image_upload.owner = user_registration.id AND user_registration.username = '".$_GET['user']."'";
+	$result = mysql_query($query);
+	break;
+    }
+    if($result) {
+      while ($row = mysql_fetch_assoc($result)) {
+	echo '<a class="thumb" href="art.php?id='.$row['id'].'"><img src="images/thumb/'.$row['id'].'.png">'.$row['name'].'</a>';
+      }
+    }
+    else {
+      echo "There was an error getting the search results: ".mysql_error();
     }
   ?>
 </div>

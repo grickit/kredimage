@@ -52,7 +52,7 @@
 </div>
 <div id="stats_page">
   <span style="font-size: 24px;"><?php echo $image_title; ?></span><br>
-  by <a href="profile.php?a=<?php echo $owner_username; ?>"><?php echo $owner_username; ?></a><br>
+  by <a href="search.php?mode=user&user=<?php echo $owner_username; ?>"><?php echo $owner_username; ?></a><br>
   <p><?php echo $image_desc; ?></p>
 </div>
 
@@ -71,7 +71,7 @@
 
   <?php
     while($row = mysql_fetch_array($comments_result)) {
-      echo "<div class=\"comment\">" . $row['message'] . "<br>&ndash; " . $row['username'] . "</div>";
+      echo "<div class=\"comment\">" . $row['message'] . "<br>&ndash; <a href=\"search.php?mode=user&user=".$row['username']."\">".$row['username']."</a></div>";
     }
   ?>
 
