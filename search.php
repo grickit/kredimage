@@ -24,7 +24,7 @@
 	$result = mysql_query($query);
 	break;
       case "user":
-	$query = "SELECT image_stats.id, image_stats.name FROM image_stats,image_upload,user_registration WHERE image_stats.id = image_upload.id AND image_upload.owner = user_registration.id AND user_registration.username = '".$_GET['user']."'";
+	$query = "SELECT image_stats.id, image_stats.name FROM image_stats,image_upload,user_registration WHERE image_stats.id = image_upload.id AND image_upload.owner = user_registration.id AND user_registration.username = '".$_GET['user']."' ORDER BY image_stats.id DESC";
 	$result = mysql_query($query);
 	break;
     }
