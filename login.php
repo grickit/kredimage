@@ -12,7 +12,7 @@
 	sendTo($_GET['referer']);
       }
       else {
-	sendTo('search.php?error=A%20system%20error%20occured');
+	sendTo('search.php');
       }
     }
     else {
