@@ -119,7 +119,7 @@
 <script type="text/javascript" src="resources/scripts/js/registration_client_side.js"></script>
 <style type="text/css">@import url("resources/styles/register.css");</style>
 <div id="registration_page">
-  <p><span style="font-size: 28px;">Register for Kredimage - entirely free!</span>
+  <p><span style="font-size: 28px;">Register for Kredimage - entirely free!</span><br><a href="login.php">Already have an account?</a>
   </p>
 
   <p>
