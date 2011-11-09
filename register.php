@@ -1,7 +1,7 @@
 <?php
   include("resources/scripts/php/kredimage.php");
   include("resources/scripts/php/login.php");
-  if ($logged_in == true) { sendTo('upload.php'); }
+  if ($logged_in == true) { sendTo('search.php?error=You%20already%20have%20an%20account'); }
 ?>
 <?php // Functions
   function validateUsername($username) {
