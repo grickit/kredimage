@@ -19,6 +19,7 @@
 <div id="search_page">
   <?php
     if(isset($_GET['error'])) echo '<p class="error">'.$_GET['error'].'</p>';
+    if($logged_in != true) { echo '<p>Have you considered <a href="register.php">registering an account?</a></p>'; }
 
     switch($mode) {
       case "all":
