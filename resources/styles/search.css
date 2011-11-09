@@ -14,12 +14,13 @@
 }
 
 .thumb {
-  width: 120px;
-  height: 140px;
+  width: 122px;
+  height: 142px;
   display: block;
   float: left;
   margin: 5px;
   text-align: center;
+  overflow: hidden;
 }
 
 .thumb img {
