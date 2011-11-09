@@ -12,7 +12,7 @@
 	sendTo($_GET['referer']);
       }
       else {
-	sendTo('upload.php');
+	sendTo('search.php?error=A%20system%20error%20occured');
       }
     }
     else {
@@ -55,6 +55,7 @@
 <?php
   include("resources/scripts/php/login.php");
   include("resources/header.php");
+  if($logged_in == true) { sendTo('search.php?error=You%20are%20already%20logged%20in'); }
 ?>
 <style type="text/css">@import url("resources/styles/login.css");</style>
 <div id="login_page">
