@@ -38,8 +38,8 @@
 
 	$id = mysql_insert_id($db_server);
 
-	$title = mysql_real_escape_string($_POST['u_name']);
-	$description = mysql_real_escape_string($_POST['u_desc']);
+	$title = mysql_real_escape_string(htmlentities($_POST['u_name']));
+	$description = mysql_real_escape_string(htmlentities($_POST['u_desc']));
 	$query = "INSERT INTO image_stats VALUES('$id','$title','$description','0','0')";
 	$result = mysql_query($query);
 	if(!$result) die("Couldn't commit stats: ".mysql_error());
