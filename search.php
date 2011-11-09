@@ -18,6 +18,8 @@
 <style type="text/css">@import url("resources/styles/search.css");</style>
 <div id="search_page">
   <?php
+    if(isset($_GET['error'])) echo '<p class="error">'.$_GET['error'].'</p>';
+
     switch($mode) {
       case "all":
 	$query = "SELECT * FROM image_stats ORDER BY id DESC";

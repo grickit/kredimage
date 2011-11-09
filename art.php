@@ -26,7 +26,7 @@
     $image_desc = $row['description'];
   }
   else {
-    sendTo("upload.php");
+    sendTo("search.php?error=You%20did%20not%20choose%20a%20valid%20image.");
   }
 
   if(isset($_GET['comment']) && isset($_POST['c_text'])) {
