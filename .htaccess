@@ -7,3 +7,10 @@ RewriteRule ^images/thumb/([0-9]+)\.(jpeg|png|gif)$ resources/scripts/php/image.
 RewriteRule ^index.php$ search.php?type=recent
 
 RewriteRule ^resources/[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+$ upload.php [R]
+
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !localhost
+RewriteCond %{HTTP_REFERER} !127.0.0.*
+RewriteCond %{HTTP_REFERER} !acmphp.com
+RewriteRule \.(gif|jpg|jpeg|png)$ resources/images/hotlink.jpg [L]
